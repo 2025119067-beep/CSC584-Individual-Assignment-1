@@ -18,7 +18,7 @@ STUDENT ID: 2025119067
 
 
 
-**##** **Project Overview**
+**Project Overview**
 
 
 
@@ -26,7 +26,7 @@ My Profile Space is a Personal Profile Web Application developed for CSC584 Indi
 
 
 
-**## Features**
+**Features**
 
 
 
@@ -49,7 +49,7 @@ Additional Features
 
 
 
-**## Technologies Used**
+**Technologies Used**
 
 
 
@@ -63,7 +63,7 @@ Additional Features
 
 
 
-**## Application Workflow**
+**Application Workflow**
 
 
 
@@ -87,7 +87,7 @@ The application follows the required data flow:
 
 
 
-**## Profile Information**
+**Profile Information**
 
 
 
@@ -109,7 +109,7 @@ The application collects the following information:
 
 
 
-**## Requirements**
+**Requirements**
 
 
 
@@ -121,7 +121,7 @@ The application collects the following information:
 
 
 
-**## How to Run the Application**
+**How to Run the Application**
 
 
 
@@ -143,23 +143,23 @@ The application collects the following information:
 
 
 
-**## Screenshots**
+**Screenshots**
 
 
 
-\### 1. Profile Form (Part 1)
+\1. Profile Form (Part 1)
 
 !\[Profile Form 1](SCREENSHOTS/Profile-Form%20(1).png)
 
 
 
-\### 2. Profile Form (Part 2)
+\2. Profile Form (Part 2)
 
 !\[Profile Form 2](SCREENSHOTS/Profile-Form%20(2).png)
 
 
 
-\### 3. Profile Output (Part 1)
+\3. Profile Output (Part 1)
 
 !\[Profile Output 1](SCREENSHOTS/Profile-Output%20(1).png)
 
