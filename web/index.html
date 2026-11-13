@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ainaa's Digital Profile</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .progress-section {
+            margin: 25px 0;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #8B5CF6, #38BDF8);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .progress-status {
+            margin-top: 8px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .character-counter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="brand">
+            <img src="images/avatar.png"
+                 alt="Digital profile avatar"
+                 class="brand-icon">
+
+            <div>
+                <p class="brand-name">My Profile Space</p>
+                <p class="brand-subtitle">PERSONAL PROFILE WEB APPLICATION</p>
+            </div>
+        </header>
+
+        <h1>Build Your <span class="gradient-text">Digital Identity.</span></h1>
+
+        <p class="description">
+            Introduce yourself. Complete the form below to create your digital profile.
+        </p>
+
+        <form action="ProfileServlet" method="post" id="profileForm">
+
+            <!-- FORM PROGRESS INDICATOR -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span>PROFILE COMPLETION</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <div class="progress-status" id="progressStatus">
+                    Let's get started!
+                </div>
+            </div>
+
+            <p class="section-label">01. Personal Information</p>
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text"
+                       id="name"
+                       name="name"
+                       placeholder="Enter your full name"
+                       maxlength="100"
+                       autocomplete="name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="studentId">Student ID</label>
+                <input type="text"
+                       id="studentId"
+                       name="studentId"
+                       placeholder="Enter your student ID"
+                       maxlength="30"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="programme">Programme</label>
+                <input type="text"
+                       id="programme"
+                       name="programme"
+                       placeholder="e.g. Bachelor of Information Technology"
+                       maxlength="100"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="you@example.com"
+                       maxlength="254"
+                       autocomplete="email"
+                       required>
+            </div>
+
+            <p class="section-label">02. About You</p>
+
+            <div class="form-group">
+                <label for="hobbies">Hobbies</label>
+                <input type="text"
+                       id="hobbies"
+                       name="hobbies"
+                       placeholder="e.g. Reading, coding, photography"
+                       maxlength="300"
+                       required>
+
+                <span class="field-hint">
+                    Separate multiple hobbies with commas.
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="introduction">Short Self-Introduction</label>
+
+                <textarea id="introduction"
+                          name="introduction"
+                          placeholder="Tell us a little about yourself..."
+                          maxlength="1000"
+                          required></textarea>
+
+                <!-- LIVE CHARACTER COUNTER -->
+                <div class="character-counter">
+                    <span>Maximum 1000 characters.</span>
+                    <span id="charCount">0 / 1000</span>
+                </div>
+            </div>
+
+            <button type="submit" class="button">
+                Create My Profile
+            </button>
+
+        </form>
+
+        <footer class="footer">
+            CSC584 Individual Assignment 1
+            <br>
+            Designed by Ainaa
+        </footer>
+
+    </main>
+
+    <script>
+        var profileForm = document.getElementById("profileForm");
+
+        var requiredFields = profileForm.querySelectorAll(
+            "input[required], textarea[required]"
+        );
+
+        var progressFill = document.getElementById("progressFill");
+        var progressPercent = document.getElementById("progressPercent");
+        var progressStatus = document.getElementById("progressStatus");
+
+        // FORM PROGRESS INDICATOR
+        function updateProgress() {
+            var completedFields = 0;
+
+            for (var i = 0; i < requiredFields.length; i++) {
+                if (requiredFields[i].value.trim() !== "") {
+                    completedFields++;
+                }
+            }
+
+            var percentage = Math.round(
+                (completedFields / requiredFields.length) * 100
+            );
+
+            progressFill.style.width = percentage + "%";
+            progressPercent.textContent = percentage + "%";
+
+            if (percentage === 0) {
+                progressStatus.textContent = "Let's get started!";
+            } else if (percentage < 100) {
+                progressStatus.textContent =
+                    "Keep going! You're making progress.";
+            } else {
+                progressStatus.textContent =
+                    "Great! Your profile is complete.";
+            }
+        }
+
+        // LIVE CHARACTER COUNTER
+        var introduction = document.getElementById("introduction");
+        var charCount = document.getElementById("charCount");
+
+        introduction.addEventListener("input", function() {
+            charCount.textContent = this.value.length + " / 1000";
+        });
+
+        // UPDATE PROGRESS WHEN USER TYPES
+        for (var i = 0; i < requiredFields.length; i++) {
+            requiredFields[i].addEventListener("input", function() {
+                this.setCustomValidity("");
+                updateProgress();
+            });
+        }
+
+        // FORM VALIDATION
+        profileForm.addEventListener("submit", function(event) {
+            for (var i = 0; i < requiredFields.length; i++) {
+                if (requiredFields[i].value.trim() === "") {
+                    requiredFields[i].setCustomValidity(
+                        "Please enter a valid value."
+                    );
+
+                    requiredFields[i].reportValidity();
+                    event.preventDefault();
+                    return;
+                }
+
+                requiredFields[i].setCustomValidity("");
+            }
+        });
+
+        // INITIAL PROGRESS
+        updateProgress();
+    </script>
+
+</body>
+</html>
