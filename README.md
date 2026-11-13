@@ -161,7 +161,7 @@ The application collects the following information:
 
 3. Profile Output (Part 1)
 
-![Profile Output 1](SCREENSHOTS/Profile-Output%20(1).png)
+![Profile Output 1](SCREENSHOTS/Profile-Output%20(1)%20.png)
 
 
 
