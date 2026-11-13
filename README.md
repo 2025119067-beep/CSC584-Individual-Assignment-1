@@ -12,7 +12,7 @@ STUDENT ID: 2025119067
 
 
 
-**# My Profile Space – Personal Profile Web Application**
+**My Profile Space – Personal Profile Web Application**
 
 
 
@@ -147,25 +147,25 @@ The application collects the following information:
 
 
 
-\1. Profile Form (Part 1)
+1. Profile Form (Part 1)
 
 !\[Profile Form 1](SCREENSHOTS/Profile-Form%20(1).png)
 
 
 
-\2. Profile Form (Part 2)
+2. Profile Form (Part 2)
 
 !\[Profile Form 2](SCREENSHOTS/Profile-Form%20(2).png)
 
 
 
-\3. Profile Output (Part 1)
+3. Profile Output (Part 1)
 
 !\[Profile Output 1](SCREENSHOTS/Profile-Output%20(1).png)
 
 
 
-\### 4. Profile Output (Part 2)
+4. Profile Output (Part 2)
 
 !\[Profile Output 2](SCREENSHOTS/Profile-Output%20(2).png)
 
